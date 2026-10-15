@@ -43,7 +43,7 @@ There is no test suite and no deploy target. The app is served from `npm run dev
 
 ## Gotchas
 
-- `seedData.ts` says "auto-generated", but its generators (`scripts/generate_seed.py`, `scripts/generateSamplePdfs.js`) and `sample_pdfs/` were deleted in commit `af74a07`. Edit `seedData.ts` by hand. The leftover `scripts/**` ignore in `eslint.config.js` and the Python entries in `.gitignore` refer to those removed files.
+- `seedData.ts` says "auto-generated", but its generators (`scripts/generate_seed.py`, `scripts/generateSamplePdfs.js`) and `sample_pdfs/` were deleted in commit `af74a07`. Edit `seedData.ts` by hand.
 - `pdf-lib` is listed in `dependencies`, but nothing in `src/` imports it.
 - The `package.json` `name` is still `hw5`, and the license there is `ISC`. There is no `LICENSE` file.
 - TypeScript is held at 6.x on purpose: `typescript-eslint` 8.x rejects TS 7 and `npm run lint` fails. See `docs/DEPENDENCIES.md` before bumping it.
