@@ -9,7 +9,7 @@ Customs Case Manager is a browser-only React/TypeScript prototype of the paperwo
 
 > **Context:** CIS 4120 (Human-Computer Interaction) final project, University of Pennsylvania, Spring 2026
 
-<img src="logo.png" alt="Customs Case Manager logo" width="420" />
+<img src="design-assets/logo/logo.png" alt="Customs Case Manager logo" width="420" />
 
 ## Features
 
@@ -80,7 +80,7 @@ Seed data in [`src/port5176/seedData.ts`](src/port5176/seedData.ts) registers th
 ```
 .
 ├── index.html                     # Vite entry; loads src/main.5176.tsx
-├── logo.png                       # Project logo
+├── design-assets/logo/logo.png    # Project logo
 ├── vite.config.ts                 # React plugin, fixed port 5176
 ├── eslint.config.js               # ESLint flat config
 ├── docs/DEPENDENCIES.md           # Dependency maintenance notes
