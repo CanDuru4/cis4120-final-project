@@ -34,12 +34,6 @@ Thumbs.db
 # Test / coverage
 coverage/
 
-# Python tooling (scripts/generate_seed.py)
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-
 # Vite
 .vite/
 
