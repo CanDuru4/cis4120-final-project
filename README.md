@@ -107,3 +107,12 @@ Coursework. No `LICENSE` file is distributed with this repository; `package.json
 ## Author
 
 Can Duru — [canduru.net](https://canduru.net)
+
+## Shared local capacity
+
+The package build and validation commands use the optional Mini helper at
+`~/Developer/personal/mac-mini/validation-economy` for CPU/RAM admission.
+Use the usual package commands directly, without an outer lockf. Matching clean
+validation can reuse a pass; commands producing build or render output always run.
+The `:local` scripts hold the original recipes for the wrapper and remote builders.
+Without the helper, the original command still runs. Existing tool caches remain.
