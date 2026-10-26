@@ -1,5 +1,7 @@
 @AGENTS.md
 
+Validation scope, shared capacity and remote execution follow AGENTS.md. Command examples below do not require a full-suite rerun for every edit.
+
 ## Claude Code
 
 - Verify with `npm run build && npm run lint`. There are no tests. If `node_modules/` is missing, ask before running `npm install`.
