@@ -56,3 +56,12 @@ There is no test suite and no deploy target. The app is served from `npm run dev
 - Code lives in the single `Port5176App.tsx`, organized as pure helpers and types at the top and components below. Unless a refactor is requested, make targeted edits instead of splitting the file.
 - Design tokens are the `:root` CSS variables in `port5176.css`. Prefer them for new styles, but the file already has many literal hex/rgba colors, so don't treat those as bugs to sweep.
 - The README records AI-assisted development. The team is credited in the README's Acknowledgments section.
+
+## Shared local capacity
+
+The package build and validation commands use the optional Mini helper at
+`~/Developer/personal/mac-mini/validation-economy` for CPU/RAM admission.
+Use the usual package commands directly, without an outer lockf. Matching clean
+validation can reuse a pass; commands producing build or render output always run.
+The `:local` scripts hold the original recipes for the wrapper and remote builders.
+Without the helper, the original command still runs. Existing tool caches remain.
