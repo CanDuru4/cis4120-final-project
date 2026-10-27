@@ -1,7 +1,5 @@
 @AGENTS.md
 
-Compatible heavy committed-source checks prefer the gaming PC through `remote-run.py`, which handles bounded wake/connect automatically. Follow AGENTS.md for runtime/data exceptions, native checks and matching-result reuse. Do not ask for PC availability each time or silently fall back to the Mini.
-
 ## Claude Code
 
 - Verify with `npm run build && npm run lint`. There are no tests. If `node_modules/` is missing, ask before running `npm install`.

@@ -15,6 +15,8 @@ Stack: React 19, React Router 7, TypeScript 6 (`strict`), Vite 8, `pdfjs-dist` 6
 - `src/styles/global.css`: base resets.
 - `public/favicon/`: favicons and the web manifest.
 - `docs/DEPENDENCIES.md`: the security pass and held-back majors.
+- `design-assets/logo/`: brand logo files.
+- `scripts/capacity.sh`: the wrapper behind `npm run build` and `npm run lint`.
 - There is no `.github/` directory: no Actions workflows and no Dependabot version-update config.
 
 ## Commands
@@ -22,8 +24,8 @@ Stack: React 19, React Router 7, TypeScript 6 (`strict`), Vite 8, `pdfjs-dist` 6
 `node_modules/` is not checked in, so run `npm install` first. Node `^20.19.0 || >=22.12.0` is required by Vite 8.
 
 - `npm run dev`: dev server on http://localhost:5176. It uses `--strictPort`, so it fails instead of picking another port. `npm run dev:5176` is an alias.
-- `npm run build`: runs `tsc -b`, then `vite build` into `dist/`. This is the only typecheck.
-- `npm run lint`: `eslint .`
+- `npm run build`: runs `tsc -b`, then `vite build` into `dist/` (via `scripts/capacity.sh`; raw recipe `build:local`). This is the only typecheck.
+- `npm run lint`: `eslint .` (via `scripts/capacity.sh`; raw recipe `lint:local`).
 - `npm run preview`: serves `dist/`.
 
 There is no test suite and no deploy target. The app is served from `npm run dev` or as the static `dist/` output.
@@ -66,10 +68,6 @@ validation can reuse a pass; commands producing build or render output always ru
 The `:local` scripts hold the original recipes for the wrapper and remote builders.
 Without the helper, the original command still runs. Existing tool caches remain.
 
-## Validation placement and reuse (owner update 2026-10-26)
+## Validation
 
-- Follow the global Claude/Codex test policy and `~/Developer/personal/mac-mini/validation-economy/README.md` and `COVERAGE.md`. Focus first; full coverage only when the changed inputs require it. Docs-only policy edits need no application suite or deploy.
-- Use `~/Developer/personal/mac-mini/validation-economy/remote-run.py` for every check that can run on Linux (owner rule 2026-10-27: "all the things that we can run on pc must be on pc"): tests, lint, typecheck, Node and web checks. The Mini keeps only what needs macOS or a device, each such chunk with its reason written in the gate map; this repo wires the route in its own gate, and Linux-capable work left on the Mini is a bug to fix here. It defaults to `gaming-pc` and handles connection and bounded Wake-on-LAN automatically; call it directly without a separate online check or asking the owner each time. Match the pinned runtime and locked dependencies, bound actual workers, and preserve repo data-export restrictions. Never export credentials, production data, signing keys or uncommitted work.
-- The PC pool shares eight CPU slots and 24 GiB across isolated jobs with zero test swap; retain automatic job cleanup, the 8 GiB package-cache budget and 128 GiB virtual-disk cap. Brain is an explicit secondary route (`--runner brain`) when compatible, capped at two CPUs and 4 GiB together. If the PC remains unavailable after bounded wake/connect, report the blocker; never silently start the same work on the Mini or replay an uncertain submitted job.
-- For work that must run on the Mini: call this repo's integrated check/build entry points directly, without an outer `lockf`. Keep worker ceilings; reserve separate heavy phases and diagnose retention by physical footprint, including compressed memory.
-- Reuse only supported receipts with matching source, coverage, dependencies, runtime/platform and relevant environment. Preserve passed unaffected batches; count remote results only when the owning gate aggregates them. Receipts do not replace required build artifacts or OS/device/browser proof. Split or offload an impossible reservation instead of waiting indefinitely; only stop your own obsolete jobs. Existing gates need explicit remote routing and matching-result aggregation; this instruction does not automatically move unintegrated commands.
+No test suite. If heavy Linux-capable checks are added, they run on the gaming PC per the global "Tests, CI and deploy" rules.
